@@ -1,0 +1,194 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: #101012;
+}
+
+.shell {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.timeline {
+  position: absolute;
+  top: 16px;
+  left: clamp(14px, 3vw, 42px);
+  right: clamp(14px, 3vw, 42px);
+  z-index: 5;
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  align-items: flex-start;
+  gap: 0;
+  min-height: 46px;
+  padding: 0;
+  overflow: visible;
+  background: transparent;
+  border: 0;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255, 250, 240, 0.48);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.18);
+}
+
+.timeline__item {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 0;
+  color: rgba(255, 250, 240, 0.7);
+  text-align: center;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+  text-shadow: 0 1px 9px rgba(0, 0, 0, 0.42);
+  transition: color 160ms ease;
+}
+
+.timeline__item::before {
+  content: "";
+  width: 1px;
+  height: 13px;
+  background: rgba(255, 250, 240, 0.74);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.26);
+  opacity: 0.74;
+  transition: height 160ms ease, opacity 160ms ease, background 160ms ease;
+}
+
+.timeline__item:hover,
+.timeline__item--active {
+  color: #fffaf0;
+}
+
+.timeline__item--active::before {
+  opacity: 1;
+  height: 18px;
+  background: #fffaf0;
+}
+
+.timeline__title {
+  overflow: hidden;
+  width: min(9vw, 104px);
+  font-size: 0.62rem;
+  font-weight: 600;
+  line-height: 1.15;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.timeline__date {
+  display: block;
+  overflow: hidden;
+  width: min(9vw, 104px);
+  margin-top: 2px;
+  font-size: 0.52rem;
+  font-weight: 500;
+  line-height: 1.1;
+  color: rgba(255, 250, 240, 0.52);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.panorama {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  min-height: 0;
+  overflow: hidden;
+  touch-action: none;
+  cursor: grab;
+  background: #111;
+  user-select: none;
+}
+
+.panorama--dragging {
+  cursor: grabbing;
+}
+
+.panorama__canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  outline: none;
+}
+
+.epoch {
+  position: absolute;
+  left: clamp(18px, 4vw, 56px);
+  bottom: clamp(22px, 5vw, 54px);
+  z-index: 2;
+  max-width: min(440px, calc(100vw - 36px));
+  color: #fffaf0;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.68);
+}
+
+.epoch h1 {
+  margin: 0 0 4px;
+  font-size: clamp(1.9rem, 4.8vw, 4.8rem);
+  font-weight: 700;
+  line-height: 0.96;
+  letter-spacing: 0;
+}
+
+.epoch p {
+  margin: 0;
+  font-size: clamp(0.86rem, 1.2vw, 1rem);
+  line-height: 1.35;
+  color: rgba(255, 250, 240, 0.78);
+}
+
+@media (max-width: 740px) {
+  body {
+    overflow: auto;
+  }
+
+  .shell {
+    height: 100vh;
+  }
+
+  .timeline {
+    top: 13px;
+    left: 14px;
+    right: 14px;
+    grid-template-columns: repeat(10, minmax(58px, 1fr));
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .timeline::-webkit-scrollbar {
+    display: none;
+  }
+
+  .timeline__item {
+    gap: 6px;
+  }
+
+  .timeline__title {
+    width: 54px;
+    font-size: 0.54rem;
+  }
+
+  .timeline__date {
+    width: 54px;
+    font-size: 0.48rem;
+  }
+
+  .epoch {
+    bottom: 26px;
+  }
+}
