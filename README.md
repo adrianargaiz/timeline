@@ -1,6 +1,7 @@
 # Timeline 360 de Epocas Historicas
 
 Aplicacion web interactiva construida con Angular para explorar distintas epocas historicas mediante escenarios panoramicos 360. La experiencia esta pensada para ser directa: entrar, elegir una epoca en el timeline superior y moverse por la escena arrastrando con el raton o con el dedo.
+VISITA EL SITIO WEB AQUI: https://timeline-psi-rouge.vercel.app/
 
 ## Vista previa
 
