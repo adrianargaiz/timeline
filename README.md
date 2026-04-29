@@ -5,10 +5,6 @@ VISITA EL SITIO WEB AQUI: https://timeline-psi-rouge.vercel.app/
 
 ## Vista previa
 
-> Sustituye estos huecos por capturas o GIFs del proyecto.
-
-Vista general de la appEjemplo de escena 360Timeline minimalista
-
 ![Vista 01](docs/screenshots/captura01.png)
 ![Vista 02](docs/screenshots/captura02.png)
 ![Video](docs/screenshots/video.mp4)
